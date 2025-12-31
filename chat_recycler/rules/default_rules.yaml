@@ -1,0 +1,224 @@
+rules:
+  - id: action_request_make
+    kind: event
+    event_type: action_request
+    label: action_request
+    patterns: ["\\bmake\\b", "\\bbuild\\b", "\\bwrite\\b", "\\bcreate\\b", "\\bconvert\\b", "turn into"]
+    confidence: 0.7
+  - id: intent_plan
+    kind: event
+    event_type: intent
+    label: plan
+    patterns: ["plan", "roadmap", "strategy"]
+  - id: intent_design
+    kind: event
+    event_type: intent
+    label: design
+    patterns: ["design", "architecture"]
+  - id: constraint_local_first
+    kind: event
+    event_type: constraint
+    label: local_first
+    patterns: ["local-first", "offline", "no network"]
+  - id: constraint_privacy
+    kind: event
+    event_type: constraint
+    label: privacy
+    patterns: ["privacy", "no cloud", "local-only"]
+  - id: constraint_time
+    kind: event
+    event_type: constraint
+    label: time_pressure
+    patterns: ["deadline", "asap", "urgent", "fast"]
+  - id: constraint_hardware
+    kind: event
+    event_type: constraint
+    label: hardware
+    patterns: ["M1", "16GB", "low memory", "Mac"]
+  - id: blocker_missing_context
+    kind: event
+    event_type: blocker
+    label: missing_context
+    patterns: ["missing context", "need more info", "not enough detail"]
+  - id: blocker_env_error
+    kind: event
+    event_type: blocker
+    label: env_error
+    patterns: ["error", "traceback", "exception", "failed"]
+  - id: blocker_over_scope
+    kind: event
+    event_type: blocker
+    label: over_scope
+    patterns: ["too much", "out of scope", "cannot cover"]
+  - id: blocker_ambiguity
+    kind: event
+    event_type: blocker
+    label: ambiguity
+    patterns: ["ambiguous", "unclear", "not sure"]
+  - id: blocker_formatting
+    kind: event
+    event_type: blocker
+    label: formatting
+    patterns: ["formatting", "format", "structure error"]
+  - id: blocker_performance
+    kind: event
+    event_type: blocker
+    label: performance
+    patterns: ["slow", "performance", "timeout"]
+  - id: blocker_policy
+    kind: event
+    event_type: blocker
+    label: policy
+    patterns: ["policy", "compliance", "restricted"]
+  - id: outcome_success
+    kind: event
+    event_type: outcome
+    label: success
+    patterns: ["works", "success", "done", "completed"]
+  - id: outcome_fail
+    kind: event
+    event_type: outcome
+    label: fail
+    patterns: ["doesn't work", "failed", "error", "404"]
+  - id: next_step
+    kind: event
+    event_type: next_step
+    label: next_step
+    patterns: ["next step", "then", "after that"]
+  - id: metric_coverage
+    kind: event
+    event_type: metric
+    label: coverage
+    patterns: ["coverage", "accuracy", "precision"]
+  - id: tool_use
+    kind: event
+    event_type: tool_use
+    label: tool_use
+    patterns: ["tool", "api", "cli"]
+  - id: var_requested_artifact_prompt
+    kind: variable
+    var_name: requested_artifact
+    var_type: enum
+    var_value: prompt
+    patterns: ["prompt", "system prompt"]
+    confidence: 0.65
+  - id: var_requested_artifact_schema
+    kind: variable
+    var_name: requested_artifact
+    var_type: enum
+    var_value: schema
+    patterns: ["schema", "json schema"]
+  - id: var_requested_artifact_code
+    kind: variable
+    var_name: requested_artifact
+    var_type: enum
+    var_value: code
+    patterns: ["code", "python", "script"]
+  - id: var_requested_artifact_checklist
+    kind: variable
+    var_name: requested_artifact
+    var_type: enum
+    var_value: checklist
+    patterns: ["checklist", "steps"]
+  - id: var_requested_artifact_prd
+    kind: variable
+    var_name: requested_artifact
+    var_type: enum
+    var_value: prd
+    patterns: ["PRD", "product requirements"]
+  - id: var_requested_artifact_email
+    kind: variable
+    var_name: requested_artifact
+    var_type: enum
+    var_value: email
+    patterns: ["email", "message"]
+  - id: var_requested_artifact_mindmap
+    kind: variable
+    var_name: requested_artifact
+    var_type: enum
+    var_value: mindmap
+    patterns: ["mindmap", "mind map"]
+  - id: var_requested_artifact_report
+    kind: variable
+    var_name: requested_artifact
+    var_type: enum
+    var_value: report
+    patterns: ["report", "summary"]
+  - id: var_blocker_missing_context
+    kind: variable
+    var_name: blocker_type
+    var_type: enum
+    var_value: missing_context
+    patterns: ["missing context", "need more info"]
+  - id: var_blocker_env_error
+    kind: variable
+    var_name: blocker_type
+    var_type: enum
+    var_value: env_error
+    patterns: ["error", "exception"]
+  - id: var_blocker_over_scope
+    kind: variable
+    var_name: blocker_type
+    var_type: enum
+    var_value: over_scope
+    patterns: ["out of scope", "too much"]
+  - id: var_blocker_ambiguity
+    kind: variable
+    var_name: blocker_type
+    var_type: enum
+    var_value: ambiguity
+    patterns: ["unclear", "ambiguous"]
+  - id: var_blocker_formatting
+    kind: variable
+    var_name: blocker_type
+    var_type: enum
+    var_value: formatting
+    patterns: ["formatting", "format error"]
+  - id: var_blocker_performance
+    kind: variable
+    var_name: blocker_type
+    var_type: enum
+    var_value: performance
+    patterns: ["slow", "performance"]
+  - id: var_blocker_policy
+    kind: variable
+    var_name: blocker_type
+    var_type: enum
+    var_value: policy
+    patterns: ["policy", "restricted"]
+  - id: var_constraint_hardware
+    kind: variable
+    var_name: constraint
+    var_type: string
+    var_value: hardware
+    patterns: ["M1", "16GB", "Mac"]
+  - id: var_constraint_privacy
+    kind: variable
+    var_name: constraint
+    var_type: string
+    var_value: privacy
+    patterns: ["privacy", "local-only", "no cloud"]
+  - id: var_constraint_no_filler
+    kind: variable
+    var_name: constraint
+    var_type: string
+    var_value: no_filler
+    patterns: ["no filler", "no filler words"]
+  - id: var_constraint_deterministic
+    kind: variable
+    var_name: constraint
+    var_type: string
+    var_value: deterministic
+    patterns: ["deterministic", "no llm"]
+  - id: var_tone_direct
+    kind: variable
+    var_name: tone
+    var_type: enum
+    var_value: direct
+    patterns: ["no filler", "copy-paste", "concise"]
+  - id: var_tone_verbose
+    kind: variable
+    var_name: tone
+    var_type: enum
+    var_value: verbose
+    patterns: ["detailed", "explain"]
