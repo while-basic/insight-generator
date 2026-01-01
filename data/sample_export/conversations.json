@@ -1,0 +1,25 @@
+[
+  {
+    "id": "sample-convo-1",
+    "mapping": {
+      "1": {
+        "id": "1",
+        "message": {
+          "id": "msg-1",
+          "author": {"role": "user"},
+          "create_time": 1710000000,
+          "content": {"parts": ["Make a checklist for a local-first pipeline on M1 16GB."]}
+        }
+      },
+      "2": {
+        "id": "2",
+        "message": {
+          "id": "msg-2",
+          "author": {"role": "assistant"},
+          "create_time": 1710000060,
+          "content": {"parts": ["Sure, here is the checklist. It works."]}
+        }
+      }
+    }
+  }
+]

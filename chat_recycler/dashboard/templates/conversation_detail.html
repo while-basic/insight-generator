@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Conversation {{ conversation_id }}</h1>
+  <div class="card">
+    <h2>Messages</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Content</th>
+          <th>Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for message in messages %}
+        <tr>
+          <td>{{ message["role"] }}</td>
+          <td>{{ message["content"] }}</td>
+          <td>{{ message["created_at"] }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="3">No messages found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h2>Events</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Label</th>
+          <th>Text</th>
+          <th>Confidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for event in events %}
+        <tr>
+          <td>{{ event["event_type"] }}</td>
+          <td>{{ event["label"] }}</td>
+          <td>{{ event["event_text"] }}</td>
+          <td>{{ "%.2f"|format(event["confidence"]) }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4">No events found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h2>Variables</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+          <th>Source</th>
+          <th>Confidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for var in variables %}
+        <tr>
+          <td>{{ var["var_name"] }}</td>
+          <td>{{ var["var_value"] }}</td>
+          <td>{{ var["var_source_text"] }}</td>
+          <td>{{ "%.2f"|format(var["confidence"]) }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4">No variables found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

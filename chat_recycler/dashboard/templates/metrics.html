@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Metrics</h1>
+  <div class="grid">
+    <div class="card">
+      <h3>Total Messages</h3>
+      <p class="badge">{{ metrics.messages }}</p>
+    </div>
+    <div class="card">
+      <h3>Total Events</h3>
+      <p class="badge">{{ metrics.events }}</p>
+    </div>
+    <div class="card">
+      <h3>Total Variables</h3>
+      <p class="badge">{{ metrics.variables }}</p>
+    </div>
+  </div>
+{% endblock %}

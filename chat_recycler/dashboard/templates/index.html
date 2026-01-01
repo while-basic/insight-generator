@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Overview</h1>
+  <div class="grid">
+    <div class="card">
+      <h3>Total Messages</h3>
+      <p class="badge">{{ metrics.messages }}</p>
+    </div>
+    <div class="card">
+      <h3>Total Events</h3>
+      <p class="badge">{{ metrics.events }}</p>
+    </div>
+    <div class="card">
+      <h3>Total Variables</h3>
+      <p class="badge">{{ metrics.variables }}</p>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Conversations</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Messages</th>
+          <th>Events</th>
+          <th>Variables</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for summary in summaries %}
+        <tr>
+          <td><a href="/conversations/{{ summary.conversation_id }}">{{ summary.conversation_id }}</a></td>
+          <td>{{ summary.message_count }}</td>
+          <td>{{ summary.event_count }}</td>
+          <td>{{ summary.variable_count }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4">No conversations loaded.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Clusters</h1>
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Cluster</th>
+          <th>Conversation</th>
+          <th>Summary</th>
+          <th>Keywords</th>
+          <th>Confidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cluster in clusters %}
+        <tr>
+          <td>{{ cluster["cluster_label"] }}</td>
+          <td>{{ cluster["conversation_id"] }}</td>
+          <td>{{ cluster["cluster_summary"] }}</td>
+          <td>{{ cluster["centroid_repr"] }}</td>
+          <td>{{ "%.2f"|format(cluster["confidence"]) }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5">No clusters found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

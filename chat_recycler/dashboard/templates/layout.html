@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat Recycler Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f7f7f9; color: #222; }
+    header { background: #1e1e2f; color: #fff; padding: 16px 24px; }
+    nav a { color: #fff; margin-right: 16px; text-decoration: none; font-weight: 600; }
+    main { padding: 24px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+    .card { background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #e6e6f7; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">Overview</a>
+      <a href="/conversations">Conversations</a>
+      <a href="/clusters">Clusters</a>
+      <a href="/metrics">Metrics</a>
+    </nav>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
